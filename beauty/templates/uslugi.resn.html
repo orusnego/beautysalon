@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="background-color: #a8a8a8;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-5 col-xl-5 col-xxl-5">
+                <div class="container h-100 d-flex flex-column justify-content">
+                    <div class="h-100">
+                        <p class="homepage-title mx-auto" style="text-align: left;">
+                            Ресницы                                
+                        </p>                            
+                        <div class="homepage-title2" style="text-align: left;">
+                        Сделай красивые ресницы в <br> ByouTY Salon
+                        </div>                            
+                        <div class="homepage-descr" style="text-align: left; margin-top: 60px;">
+                           от 1500 руб
+                        </div>
+                        <div class="homepage-descr2" style="text-align: left; margin-top: 40px;">
+
+                            <a href="{% url 'uslugi' 4 %}">
+                                <p style="font-size: 30px;
+                                margin-top: 10px;
+                                margin-bottom: -100px;
+                                color: black;
+                                padding: 25px 40px;
+                                border: 3px solid black;
+                                position: absolute;
+                                display: inline-block;
+                                transition: 0.3s all;
+                                text-decoration: none;">
+                                    Записаться
+                                </p>
+
+                                <p style="font-size: 30px;
+                                margin-left: 10px;
+                                margin-top: 20px;
+                                padding: 47px 117px;
+                                border: 3px solid black;
+                                position: absolute;
+                                display: inline-block;
+                                transition: 0.3s all;
+                                text-decoration: none;">                              
+                                </p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-7 col-xl-7 col-xxl-7" >
+                <div class="box">
+                    {% load static %}
+                    <img src="{% static 'images/resn-bg.png' %}" alt="" style="height:850px; top:70%">
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</div>
+
+<div class="container">
+    {% for procedure in procedures %}
+    {% if procedure.procedures.type == 'Ресницы' %}
+
+    {% if not forloop.counter|divisibleby:2 %}
+    <div class="row">
+        <div class="col-md-3 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="box-image">
+                <div class="img">
+                    
+                    <img src="{{ procedure.image.url }}" alt=""
+                    style = "height: 48%; width: 75.6%;">
+                </div>
+                <div class="square square-left">
+                    {% load static %}
+                    <img src="{% static 'images/gray-square.jpg' %}" alt=""
+                    style = "height: calc(100% + 20px);
+                            padding-bottom: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="homepage-title" style="text-align: left; font-size: 40px; margin-top: 60px;">
+                {{ procedure.title }}
+            </div>
+            <div class="homepage-descr2" style="text-align: left; font-weight:lighter">
+                {{ procedure.description }}                         
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2" style="text-align: left; margin-top: 60px; font-size: 30px;">
+                        {{ procedure.price }} руб
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'master' procedure.id %}" style="border: 2px solid #a8a8a8;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: #a8a8a8;
+                        color: black;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'brows.detail' procedure.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row">
+        <div class="col-md-9 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="homepage-title" style="text-align: left; font-size: 40px; margin-top: 60px;">
+                {{ procedure.title }}
+            </div>
+            <div class="homepage-descr2" style="text-align: left; font-weight:lighter">
+                {{ procedure.description }}                         
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2" style="text-align: left; margin-top: 60px; font-size: 30px;">
+                        {{ procedure.price }} руб
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'master' procedure.id %}" style="border: 2px solid #a8a8a8;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: #a8a8a8;
+                        color: black;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'brows.detail' procedure.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="box-image">
+                <div class="img" style="margin-left: 167px;">
+                    <img src="{{ procedure.image.url }}" alt=""
+                    style = "height: 64%; width: 100%;">
+                </div>
+                <div class="square">
+                    {% load static %}
+                    <img src="{% static 'images/gray-square.jpg' %}" alt=""
+                    style = "height: calc(100% + 20px);
+                            padding-bottom: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

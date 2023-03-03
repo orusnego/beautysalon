@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="font-family:Garamond;">
+    <div class="advantages-title">
+        ПОДРОБНЕЕ О МАСТЕРЕ
+    </div>
+    <div class="card mb-3" style="margin: 30px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ master.image.url }}"
+                class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title homepage-title2">{{ master.name }}</h5>
+                    <p class="card-text homepage-descr2" style="text-align: left; font-size: medium;">{{ master.profession }}</p>
+                    <p class="card-text homepage-descr2" style="text-align: left; font-size: medium;">
+                        Опыт работы (в годах): <a  style="font-size: 20px; font-weight: lighter;">{{ master.experience }}</a></p>
+                    {% if master.description %}
+                    <p class="card-text homepage-descr2" style="text-align: left; font-size: medium;">
+                        Что мастер рассказывает о себе: <p>{{ master.description }}</p></p>
+                    {% endif %}
+                    {% if master.url %}
+                    <p class="card-text homepage-descr2" style="text-align: left; font-size: medium;">
+                        Личная страница мастера: <a href="https://www.instagram.com/{{ master.url }}"
+                        style="text-decoration: none; color: black;">
+                        @{{ master.url }}
+                    </a></p>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'createreview' master.id %}"
+                        class="btn btn-primary" style="background-color: black; border: 2px solid black">
+                        Оставить отзыв
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if reviews %}
+    <hr />
+    <h3>Отзывы</h3>
+    <ul class="list-group" style="margin-bottom: 30px;">
+        {% for review in reviews %}
+        <li class="list-group-item pb-3 pt-3">
+            <h5 class="card-title">
+                {{ review.name }}
+            </h5>
+            
+            <h6 class="card-subtitle mb-2 text-muted">
+                {{ review.date }}
+            </h6>
+            <p class="card-text">{{ review.text }}</p>
+            {% if user.is_authenticated and user == review.user %}
+            <a class="btn btn-primary" style="background-color: white; border: 2px solid black; color: black; font-weight: bold;"
+             href="{% url 'updatereview' review.id %}">Изменить</a>
+            <a class="btn btn-primary" style="background-color: black; border: 2px solid black"
+             href="{% url 'deletereview' review.id %}">Удалить</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock content %}

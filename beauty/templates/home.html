@@ -1,0 +1,373 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="background-color: #8a8a8a;">
+    <div class="container">
+        {% if model %}
+
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="container h-100 d-flex flex-column justify-content-">
+                    <div class="h-100">
+                        <p class="homepage-title mx-auto">
+                            BYOUTY                                
+                        </p>
+
+                        <div class="row">
+                            <div class="homepage-title2" style="text-align: center;">
+                             Брови • Ресницы • Ногти • Волосы
+                            </div>                                    
+                        </div>
+                        
+                        <div class="homepage-descr">
+                            Все, что мы делаем - мы делаем с душой!
+                        </div>
+                        <p>
+                                
+                        </p>
+                        <div class="homepage-descr2">
+                            Мастерство профессиональных специалистов, косметика и оборудование от ведущих мировых брендов, разнообразие услуг
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6" >
+                <div class="box">
+                    {% load static %}
+                    <img src="{% static 'images/noback.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</div>
+
+<div class="container">
+    <div class="advantages-title">
+        ПРЕИМУЩЕСТВА
+    </div>
+    <div class="advantages-title2">
+        КОМПЛЕКСНЫЙ ПОДХОД – ЭТО УДОБНО
+    </div>
+    <hr style="width: 15%; margin: auto; margin-top: 10vh; border-top: 2px solid black; ">
+    <div class="advantages-descr">
+        Наш Центр косметологии и эстетики 
+        предлагает самые актуальные услуги 
+        и товары в области медицинской косметологии. 
+        Мы знаем, как помочь Вам отдохнуть и расслабиться 
+        с пользой для здоровья и красоты.
+    </div>
+    <div class="row" style="margin-top: 10vh; margin-bottom: 20px;">
+        <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="container" style="font-family:Garamond; font-weight: bold;">
+                <div class="btn-floating btn-sm text-black" style="font-size:80px; text-align: center;">
+                    <i class="fa fa-arrow-circle-o-up"></i>
+                </div>
+                <div style="font-size:20px; text-align: center;">
+                    Лучшие мастера в Казани
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="container" style="font-family:Garamond; font-weight: bold;">
+                <div class="btn-floating btn-sm text-black" style="font-size:80px; text-align: center;">
+                    <i class="fa fa-diamond"></i>
+                </div>
+                <div style="font-size:20px; text-align: center;">
+                    Премиальные материалы
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="container" style="font-family:Garamond; font-weight: bold;">
+                <div class="btn-floating btn-sm text-black" style="font-size:80px; text-align: center;">
+                    <i class="fa fa-map-marker"></i>
+                </div>
+                <div style="font-size:20px; text-align: center;">
+                    Удобное расположение
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="container" style="font-family:Garamond; font-weight: bold;">
+                <div class="btn-floating btn-sm text-black" style="font-size:80px; text-align: center;">
+                    <i class="fa fa-heart"></i>
+                </div>
+                <div style="font-size:20px; text-align: center;">
+                    Любовь к клиентам
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#ada8a8;">
+    <div class="container">
+        <div class="advantages-title">
+            НАШИ УСЛУГИ
+        </div>
+        <div class="advantages-title2">
+            ИСТОЧНИКИ КРАСОТЫ
+        </div>
+        <hr style="width: 15%; margin: auto; margin-top: 10vh; border-top: 2px solid black; ">
+        <div class="advantages-descr">
+            Мастерство профессиональных специалистов, 
+            косметика и оборудование от ведущих мировых брендов, 
+            разнообразие услуг
+        </div>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top card-image" src="{% static 'images/брови.jpg' %}" />
+                            <div class="card-body">
+                                <a href="{% url 'brows' %}" class="card-links">
+                                <h5 class="card-title fw-bold" ">БРОВИ</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Ламинирование</li>
+                                        <li>Коррекция</li>
+                                        <li>Окрашивание</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card" style="margin-bottom: 20px;">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/ресницы.jpg' %}" />
+                            <div class="card-body">
+                                <a href="{% url 'lashes' %}" class="card-links">
+                                <h5 class="card-title fw-bold">РЕСНИЦЫ</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Ламинирование</li>
+                                        <li>Окрашивание</li>
+                                        <li>Наращивание</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/ногти.jpg' %}" />
+                            <div class="card-body">
+                                <a href="{% url 'nails' %}" class="card-links">
+                                <h5 class="card-title fw-bold">НОГТИ</h5>
+                                </a>
+                                <p class="card-text align-items-center">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Покрытие</li>
+                                        <li>Наращивание</li>
+                                        <li>Лак</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/волосы.jpg' %}" />
+                            <div class="card-body">
+                                <a href="{% url 'hair' %}" class="card-links">
+                                <h5 class="card-title fw-bold">ВОЛОСЫ</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Окрашивание</li>
+                                        <li>Наращивание</li>
+                                        <li>Укладка</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#d5d5d5;">
+    <div class="container">
+        <div class="advantages-title"">
+            НАША КОМАНДА
+        </div>
+        <div class="advantages-title2">
+            МЫ ЗА КРАСОТУ И ЗДОРОВЬЕ
+        </div>
+        <hr style="width: 15%; margin: auto; margin-top: 10vh; border-top: 2px solid black; ">
+        <div class="advantages-descr">
+            Нашими клиентами ежегодно становятся более 1000 человек. 
+            Основной акцент специалисты нашей организации делают на 
+            поддержание и сохранение здоровья и красоты. У нас работают 
+            только профессионалы. У нас Вы можете погрузиться в шикарную 
+            атмосферу, отдохнуть душой и телом и подарить себе возможность 
+            стать еще лучше.
+        </div>
+        <div class="row" style="margin-top: 10vh;">
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top card-image" src="{% static 'images/бровист.jpg' %}" />
+                            <div class="card-body">
+                                <a class="card-links">
+                                <h5 class="card-title fw-bold" ">ГАРИПОВА ЭЛЬВИНА</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Мастер по работе с бровями</li>
+                                        <li>Опыт работы: 6 лет</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card" style="margin-bottom: 20px;">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/ресницист.jpg' %}" />
+                            <div class="card-body">
+                                <a class="card-links">
+                                <h5 class="card-title fw-bold">АНДРЕЕВА КСЕНИЯ</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Мастер по работе с ресницами</li>
+                                        <li>Опыт работы: 5 лет</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/маникюрист.jpg' %}" />
+                            <div class="card-body">
+                                <a class="card-links">
+                                <h5 class="card-title fw-bold">ВАГИЗОВА АЛИЯ</h5>
+                                </a>
+                                <p class="card-text align-items-center">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Мастер по маникюру</li>
+                                        <li>Опыт работы: 4 года</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                <div class="container" style="font-family:Garamond; font-weight: bold;">
+                    <div style="font-size:20px; text-align: center;">
+                        <div class="card">
+                            {% load static %}
+                            <img class="card-img-top" src="{% static 'images/стилист.jpeg' %}" />
+                            <div class="card-body">
+                                <a class="card-links">
+                                <h5 class="card-title fw-bold">ИВЛЕВА РЕНАТА</h5>
+                                </a>
+                                <p class="card-text">
+                                    <ul style="list-style-type: none; padding-left: 0;">
+                                        <li>Стилист-парикмахер</li>
+                                        <li>Опыт работы: 7 лет</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+            <div class="align-items-center homepage-descr" style="margin: 10px;">
+                <a href="{% url 'masters' %}" style="text-decoration: none; color: black;">
+                    Нажми, чтобы посмотреть всех мастеров
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#e4d9d9;"">
+    <div class="container">
+        <div class="advantages-title" style="margin-bottom: 30px;">
+            ОТЗЫВЫ КЛИЕНТОВ
+        </div>
+        <div id="slider" class="carousel slide" data-bs-ride="false">
+            <!-- <div class="carousel-indicators">
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div> -->
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    {% load static %}
+                    <img src="{% static 'images/otzivi_head.png' %}" class="d-block w-100 h-100" alt="..." style="height: 20vh">
+                  </div>
+                {% for review in reviews %}
+                <li class="carousel-item reviews" data-bs-interval="10000" style="text-align: center;">
+                    <h5 class="card-title">
+                        {{ review.name }}
+                    </h5>
+                    <hr style="margin-left: 40%; margin-right: 40%;">
+                    <h6 style="margin-bottom: 1vh;">Мастер: {{ review.master.name }}</h6>
+                    <h6 style="margin-bottom: 2vh;">Услуга: {{ review.master.profession }}</h6> 
+                    <img src="{{ review.master.image.url }}" alt="" style="width: 20%; height: 20%;">
+                    <hr style="margin-left: 25%; margin-right: 25%;">           
+                    <h6 class="card-subtitle mb-2 text-muted" style="margin-left: 25%; margin-right: 25%;">
+                        {{ review.date }}
+                    </h6>
+                    <p class="card-text" style="height: 16.8vh; margin-left: 30%; margin-right: 30%;">{{ review.text }}</p>            
+                </li>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}     
+            
+            
+           

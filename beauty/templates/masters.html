@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="advantages-title" style="margin-top: 30px;">
+        НАША КОМАНДА
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for master in masters %}
+        <div v-for="master in masters" class="col">
+            <div class="card" style="margin-top: 30px; margin-bottom: 30px;">
+                <img class="card-img-top" src="{{ master.image.url }}" style=" height: 400px; width: auto;"/>
+                <div class="card-body" style="font-family:Garamond; font-weight: bold;">
+                    <a href="{% url 'detail' master.id %}" class="card-links">
+                    <h5 class="card-title fw-bold">{{ master.name }}</h5>
+                    </a>
+                    <p class="card-text">{{ master.profession }}</p>
+                    <p class="card-text">Опыт работы (в годах): {{ master.experience }}</p>                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}  

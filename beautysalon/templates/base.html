@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <title>ByouTY</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+        {% load static%}
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <nav class="navbar navbar-dark
+        navbar-expand-xxl" style="background-color:#222222">
+        
+        <div class="container ">
+            
+            <div class="col-md-2 col-lg-2 col-xl-2 col-xxl-2 mt-auto">
+                <a 
+                    href="{% url 'home'%}"
+                    class="navbar-brand">
+                    {% load static %}
+                    <img
+                        class="d-inline-block align-middle"
+                        src="{% static 'images/logo.jpg' %}"
+                        width="90%" height="90%"
+                        style="margin: 0;"/>          
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8 mx-auto 
+                collapse navbar-collapse flex-column ml-lg-0 ml-3
+                fw-bold"
+                id="navbarNav"
+                style="font-size: 25px; font-family:Garamond">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown active px-3">                    
+                        <a href="#" class="nav-link dropdown-toggle"
+                            id='navbarDropdown'
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Услуги
+                        </a>
+                        <ul class="dropdown-menu"
+                            aria-labelledby="navbarDropdown">
+                            <li><a href="{% url 'brows' %}" 
+                            class="dropdown-item">Брови</a></li>
+                            <li><a href="{% url 'lashes' %}" 
+                            class="dropdown-item">Ресницы</a></li>
+                            <li><a href="{% url 'nails' %}" 
+                            class="dropdown-item">Ногти</a></li>
+                            <li><a href="{% url 'hair' %}" 
+                            class="dropdown-item">Волосы</a></li>
+                        </ul>                    
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a href="{% url 'masters' %}" class="nav-link">
+                            Мастера
+                        </a>
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a href="{% url 'allreviews' %}" class="nav-link">
+                            Все отзывы
+                        </a>
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a href="{% url 'allworks' %}" class="nav-link">
+                            Все работы
+                        </a>
+                    </li>                            
+                </ul>
+                {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'logoutaccount' %}" style="text-decoration: none; color:  #696969">
+                    Выйти ({{ user.username }})
+                </a>
+                {% else %} 
+                <ul class="navbar-nav flex-row mb-2">
+                    <li class="nav-item active px-3">
+                        <a href="{% url 'loginaccount' %}" class="nav-link">
+                            Войти
+                        </a>
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a href="{% url 'signupaccount' %}" class="nav-link">
+                            Зарегистрироваться
+                        </a>
+                    </li>
+                </ul>
+                {% endif %}       
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 col-xxl-2 
+                collapse navbar-collapse"
+                id="navbarNav">
+                <p>
+                    <a сд href="{% url 'zapis' %}" style="font-size: 17px;
+                    font-size: 20px; font-family:Garamond;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    color: #FFFFFF;
+                    padding: 10px 20px;
+                    border: 2px solid #FFFFFF;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        Записаться онлайн
+                    </a>
+                </p>
+            </div>          
+            
+        </div>
+        
+    </nav>
+
+    {% block content %}
+    {% endblock content %}
+
+    
+    <footer class="bg-dark pt-5 pb-4" style="color:rgb(188, 188, 188)">
+
+        <div class="container text-center text-md-left" style="font-family:Arial">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 
+                        font-weight-bold text-white">byouty</h5>
+                    <p>
+                        ByouTY - красота для тебя!
+                    </p>
+                    <p>
+                        <hr>
+                    </p>
+                    <p>
+                        <a href="{% url 'zapis' %}" style="font-size: 14px;
+                        margin-top: 20px;
+                        color: #FFFFFF;
+                        padding: 25px 55px;
+                        border: 2px solid #FFFFFF;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Онлайн запись
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+                         наши Услуги
+                    </h5>
+                    <p>
+                        <a href="{% url 'brows' %}" class="text-white" style="text-decoration:none">
+                            Брови
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{% url 'lashes' %}" class="text-white" style="text-decoration:none">
+                            Ресницы
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{% url 'nails' %}" class="text-white" style="text-decoration:none">
+                            Ногти
+                        </a>
+                    </p>
+                    <p>
+                        <a href="{% url 'hair' %}" class="text-white" style="text-decoration:none">
+                            Волосы
+                        </a>
+                    </p>
+                </div>
+                
+                
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-white">
+                        Наши контакты
+                    </h5>
+                    <p>
+                        <i class="fa fa-home mr-3"></i>
+                            г. Казань, Пушкина, д.34                        
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope mr-3"></i>
+                            byouty-kazan@gmail.com                        
+                    </p>
+                    <p>
+                        <i class="fa fa-phone mr-3"></i>
+                            +7 (843) 681-34-59                        
+                    </p>
+                    
+                </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="row allign-items-center">
+
+                <div class="">
+                    <p>
+                        <strong>Подписывайтесь на наши соцсети!</strong>
+                                                
+                    </p>
+                </div>
+
+                <div class="">
+                    <div class="text-center">
+
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;">
+                                    <i class="fa fa-vk"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size:23px;">
+                                    <i class="fa fa-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="advantages-title" style="margin-top: 30px;">
+        ВЫБЕРИТЕ ДАТУ И ВРЕМЯ
+    </div>
+    
+    <div class="row">
+        
+        {% for booking_day in booking_days %}
+
+        <div class="col homepage-descr" style="text-align: center; margin-top: 30px; font-size: 36px;">
+            {{ booking_day.days }}
+            
+            <br>
+
+            {% for time in sorted_times %}
+
+            {% if time.days.days == 'Monday' and booking_day.days == 'Monday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Tuesday' and booking_day.days == 'Tuesday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Wednesday' and booking_day.days == 'Wednesday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Thursday' and booking_day.days == 'Thursday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Friday' and booking_day.days == 'Friday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Saturday' and booking_day.days == 'Saturday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+            {% if time.days.days == 'Sunday' and booking_day.days == 'Sunday' %}
+
+                <div class="homepage-descr2">
+                    <a href="{% url 'finish' master.id procedure.id time.id %}" style="border: 2px solid black;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    padding: 10px 30px;
+                    border-radius: 15px;
+                    background-color: black;
+                    color: white;
+                    display: inline-block;
+                    transition: 0.3s all;
+                    text-decoration: none;">
+                        {{ time.start_time }}
+                    </a>
+                </div>            
+
+            {% endif %}
+
+
+            {% endfor %}
+
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock content %}

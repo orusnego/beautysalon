@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+
+    <form action="" style="text-align: center;">
+        <div class="mb-3">
+        <label class="form-label homepage-descr" style="margin-top: 30px;">Поиск работы по названию процедуры:</label>
+        <input type="text" name="searchWork"
+        class="form-control" style="margin-left: 20%; width: 60%;"/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="border: 2px solid black;
+        margin-top: 10px;
+        padding: 10px 30px;
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        display: inline-block;
+        transition: 0.3s all;
+        text-decoration: none;">
+        Поиск
+        </button>
+    </form>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for work in works %}
+        <div v-for="work in works" class="col">
+            <div class="card" style="margin-top: 30px; margin-bottom: 30px;">
+                <img class="card-img-top" src="{{ work.image.url }}" style=" height: 400px; width: auto;"/>
+                <div class="card-body" style="font-family:Garamond; font-weight: bold;">
+                    <p class="card-text">
+
+                        Процедура: {% if work.master.profession.type == 'Брови' %}
+                                    <a href="{% url 'brows.detail' work.procedure.id %}" class="card-links">
+                                        <h5 class="card-title fw-bold">{{ work.procedure }}</h5>
+                                    </a>
+                                    {% endif %}
+                                    {% if work.master.profession.type == 'Ногти' %}
+                                    <a href="{% url 'nails.detail' work.procedure.id %}" class="card-links">
+                                        <h5 class="card-title fw-bold">{{ work.procedure }}</h5>
+                                    </a>
+                                    {% endif %}
+                                    {% if work.master.profession.type == 'Волосы' %}
+                                    <a href="{% url 'hair.detail' work.procedure.id %}" class="card-links">
+                                        <h5 class="card-title fw-bold">{{ work.procedure }}</h5>
+                                    </a>
+                                    {% endif %}
+                                    {% if work.master.profession.type == 'Ресницы' %}
+                                    <a href="{% url 'lashes.detail' work.procedure.id %}" class="card-links">
+                                        <h5 class="card-title fw-bold">{{ work.procedure }}</h5>
+                                    </a>
+                                    {% endif %}
+
+                        Мастер: <a href="{% url 'detail' work.master.id %}" class="card-links">
+                                    <h5 class="card-title fw-bold">{{ work.master }}</h5>
+                                </a> 
+                        
+                    </p>              
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %} 

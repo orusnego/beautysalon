@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="box-image">
+                <div class="img">
+                    
+                    <img src="{{ procedure.image.url }}" alt=""
+                    style = "height: 48%; width: 75.6%">
+                </div>
+                <div class="square square-left">
+                    {% load static %}
+                    <img src="{% static 'images/gray-square.jpg' %}" alt=""
+                    style = "height: calc(100% + 20px);
+                            padding-bottom: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="homepage-title" style="text-align: left; font-size: 40px; margin-top: 60px;">
+                {{ procedure.title }}
+            </div>
+            <div class="homepage-descr2" style="text-align: left; font-weight:lighter">
+                {{ procedure.description }}                         
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2" style="text-align: left; margin-top: 60px; font-size: 30px;">
+                        {{ procedure.price }} руб
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="#" style="border: 2px solid #a8a8a8;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: #a8a8a8;
+                        color: black;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="advantages-title" style="text-align: left;">
+        ПРИМЕРЫ РАБОТ
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for work in works %}
+        <div v-for="work in works" class="col">
+            <div class="card" style="margin-top: 30px; margin-bottom: 30px;">
+                <img class="card-img-top" src="{{ work.image.url }}" style=" height: 400px; width: auto;"/>
+                <div class="card-body" style="font-family:Garamond; font-weight: bold;">
+                    <p class="card-text">
+                        Мастер: <a href="{% url 'detail' work.master.id %}" class="card-links">
+                                    <h5 class="card-title fw-bold">{{ work.master }}</h5>
+                                </a> 
+                        
+                    </p>              
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock content %} 

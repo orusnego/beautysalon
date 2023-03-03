@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="advantages-title" style="margin-top: 30px;">
+        ВЫБЕРИТЕ ПРОЦЕДУРУ
+    </div>
+    {% for usluga in uslugi %}
+
+    {% if not forloop.counter|divisibleby:2 %}
+    <div class="row">
+        <div class="col-md-3 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="box-image">
+                <div class="img">
+                    
+                    <img src="{{ usluga.image.url }}" alt=""
+                    style = "height: 48%; width: 75.6%;">
+                </div>
+                <div class="square square-left">
+                    {% load static %}
+                    <img src="{% static 'images/gray-square.jpg' %}" alt=""
+                    style = "height: calc(100% + 20px);
+                            padding-bottom: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="homepage-title" style="text-align: left; font-size: 40px; margin-top: 60px;">
+                {{ usluga.title }}
+            </div>
+            <div class="homepage-descr2" style="text-align: left; font-weight:lighter">
+                {{ usluga.description }}                         
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2" style="text-align: left; margin-top: 60px; font-size: 30px;">
+                        {{ usluga.price }} руб
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'master' usluga.id %}" style="border: 2px solid #a8a8a8;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: #a8a8a8;
+                        color: black;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+                    {% if usluga.procedures.type == 'Брови' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'brows.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Ресницы' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'lashes.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Ногти' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'nails.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Волосы' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'hair.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row">
+        <div class="col-md-9 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="homepage-title" style="text-align: left; font-size: 40px; margin-top: 60px;">
+                {{ usluga.title }}
+            </div>
+            <div class="homepage-descr2" style="text-align: left; font-weight:lighter">
+                {{ usluga.description }}                         
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2" style="text-align: left; margin-top: 60px; font-size: 30px;">
+                        {{ usluga.price }} руб
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    <div class="homepage-descr2">
+                        <a href="{% url 'master' usluga.id %}" style="border: 2px solid #a8a8a8;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: #a8a8a8;
+                        color: black;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+                    {% if usluga.procedures.type == 'Брови' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'brows.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Ресницы' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'lashes.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Ногти' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'nails.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if usluga.procedures.type == 'Волосы' %}
+                    <div class="homepage-descr2">
+                        <a href="{% url 'hair.detail' usluga.id %}" style="border: 2px solid black;
+                        margin-top: 60px;
+                        padding: 10px 30px;
+                        border-radius: 15px;
+                        background-color: black;
+                        color: white;
+                        display: inline-block;
+                        transition: 0.3s all;
+                        text-decoration: none;">
+                            Подробнее
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-6 col-xl-6 col-xxl-6">
+            <div class="box-image">
+                <div class="img" style="margin-left: 167px;">
+                    <img src="{{ usluga.image.url }}" alt=""
+                    style = "height: 64%; width: 100%;">
+                </div>
+                <div class="square">
+                    {% load static %}
+                    <img src="{% static 'images/gray-square.jpg' %}" alt=""
+                    style = "height: calc(100% + 20px);
+                            padding-bottom: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% endfor %}
+</div>
+
+{% endblock content %}  
